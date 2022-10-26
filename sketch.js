@@ -22,6 +22,7 @@ function setup() {
   button1 = new Button(100)
   button2 = new Button(200)
   button3 = new Button(300)
+  tamagotchi.preload()
 }
 
 function draw() {
@@ -48,17 +49,7 @@ function defaultmode() {
   button1.show();
   button2.show();
   button3.show();
-  // buttonLeft= ellipse(100,350,25);
-  // buttonMiddle= ellipse(200,350,25);
-  // buttonRight= ellipse(300,350,25);
   tamagotchi.show();
-  //shape of the egg and its animation
-  // fill(150,100,200)
-  // image(tmg,150 + sin(xpos) * 10, 180+sin(ypos)*10, tmg.width/12, tmg.height/12);
-  //animation for the adult tamagotchi, for the egg, could just be the xpos change 
-  xpos += 0.03;
-  ypos += 0.06
-  
 }
 
 function watch() {
@@ -66,9 +57,9 @@ function watch() {
   fill(165,170,165);
   rect(70,60,260,230);
   fill(100,100,100)
-  buttonLeft= ellipse(100,350,25);
-  buttonMiddle= ellipse(200,350,25);
-  buttonRight= ellipse(300,350,25);
+  button1.show();
+  button2.show();
+  button3.show();
   hourNum = hour();
   if (minute() < 10) {
     minNum = "0" + minute();
@@ -90,17 +81,27 @@ function status() {
   fill(165,170,165);
   rect(70,60,260,230);
   fill(100,100,100)
-  buttonLeft= ellipse(100,350,25);
-  buttonMiddle= ellipse(200,350,25);
-  buttonRight= ellipse(300,350,25);
+  button1.show();
+  button2.show();
+  button3.show();
   fill(100,100,200)
   rect(300,200,shrink,100);
   shrink = shrink + 1
 }
 
-//
-function mousePressed() {
-  
+
+function mouseIsPressed(){
+  let d = dist(mouseX, mouseY, button1.x, button1.y);
+    if (d < 30){
+     button1.clicked()
+    } 
+//   button1.clicked();
+//   button2.clicked();
+//   button3.clicked();  
+}
+
+function mouseClicked() {
+
   if (mode == 0) {
     mode = 1;
   } else if (mode == 1) {
