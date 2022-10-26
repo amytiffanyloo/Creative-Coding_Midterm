@@ -1,27 +1,38 @@
-let tamagotchi;
+let tmg;
+let xpos=0
+let ypos=0
 
 class Tamagotchi {
-  constructor() {
-    this.x = 100;
-    this.y = 160;
-    this.w = 100
-    this.h = 100
+  constructor(x,y){
+  this.x= 190
+  this.y= 220  
   }
   
   show(){
-  tamagotchi = loadImage('tamagotchi.png');
-  image(tamagotchi,this.x, this.y,tamagotchi.w, tamagotchi.h);
-  } 
-  move(){
-  //tamagotchi will move up and down, left and right 
+  fill(100,200,100)
+  ellipse(this.x + sin(xpos) * 10, this.y+sin(ypos)*10,50,50)
+  // tmg = loadImage('baby_tamagotchi.png')  
+  // image(tmg,150 + sin(xpos) * 10, 180+sin(ypos)*10, tmg.width/12, tmg.height/12);
+  // xpos += 0.03;
+  // ypos += 0.06
+  }
+
+  default () {
+    fill(0);
+    text("nothing special!", this.x, this.y - 20);
   }
   
-  transform(){
-  //if happiness level of tamagotchi reaches a certain level, then it will transform into next stage
+  hungry() {
+    fill(0);
+    text("feed me!", this.x, this.y - 20);
   }
-  
-  status(){
-    //if hunger level is x amount, then a message will appear
-    //if hunger level is y amount, then a message will appear
+  sick() {
+    fill(0);
+    text("I'm sick", this.x, this.y - 20);
   }
+   
 }
+
+//egg extends tamagotchi 
+
+//egg extends 

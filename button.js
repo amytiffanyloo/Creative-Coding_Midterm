@@ -1,16 +1,37 @@
 class Button {
-  constructor(x,y,r) {
+  constructor(x) {
     this.x = x;
-    this.y = y;
+    this.y = 350;
     this.r = 25;
+    this.red = 100
+    this.green = 100
+    this.blue = 100
   }
   show() {
     noStroke();
-    fill(100,100,100);
+    fill(this.red,this.blue,this.g);
     ellipse(this.x,this.y,this.r);
   }
-
-  intersect(){
-  //measure distance with mouse, if mouse is clicked within the shape of the button, then it will trigger one our of three functions   
-  }
+    
+  clicked(){
+    let d = dist(mouseX, mouseY, this.x, this.y);
+    if (d < 25){
+    this.r = 35
+    this.red = 200
+    this.green = 100
+    this.blue = 200
+    //sound play
+    }    
 }
+
+}
+
+// class ButtonLeft extends Button{
+//   constructor(){
+//     super(x,y,r)
+//   }
+//   trigger(){
+    
+//   }
+
+// }
