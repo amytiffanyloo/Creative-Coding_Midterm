@@ -10,12 +10,6 @@ class Button {
     fill(100,100,100);
     ellipse(this.x,this.y,this.r);
   }
-  clicked(){
-    let d = dist(mouseX,mouseY,this.x,this.y);
-    if(d < this.r)
-    console.log("You clicked!");
-    //sound play 
-  }   
 }
 
 class ButtonLeft extends Button{
@@ -23,7 +17,7 @@ class ButtonLeft extends Button{
     super(x,y,r)
   }
   
-  triggered(){
+  clicked(){
     let d = dist(mouseX,mouseY,this.x,this.y);
     if(d < this.r){
       console.log("You clicked on Left button!");
@@ -37,12 +31,14 @@ class ButtonMiddle extends Button{
     super(x,y,r)
   }
   
-  triggered(){
+  clicked(){
     let d = dist(mouseX,mouseY,this.x,this.y);
     if(d < this.r)
     {console.log("You clicked on Middle button!");
-    mode = 2
+    mode = 0
+    opening_sound.play()
   }
+      
 }}
 
 class ButtonRight extends Button{
@@ -50,10 +46,12 @@ class ButtonRight extends Button{
     super(x,y,r)
   }
   
-  triggered(){
+  clicked(){
     let d = dist(mouseX,mouseY,this.x,this.y);
     if(d < this.r)
     {console.log("You clicked on Right button!");
     mode = 0
+    backgroundMusic();
   }
 }}
+
